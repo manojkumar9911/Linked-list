@@ -1,0 +1,66 @@
+import java.util.*;
+
+class LL
+{
+    Node head;
+    
+    class Node{
+    String data;
+    Node next;
+    
+    Node(String data){
+      this.data=data;
+      this.next=null;
+    }
+       }
+       
+       public void addFirst(String data){
+          
+           Node newnode= new Node(data);
+           if(head==null){
+           head=newnode;
+           return;
+           }
+           newnode.next=head;
+           head=newnode;
+       }
+       
+       public void addLast(String data){
+        Node newnode= new Node(data);
+           if(head==null){
+           head=newnode;
+           return;
+           }   
+            Node currnode=head;
+               while(currnode.next!=null){
+                   System.out.print(currnode.data +"-");
+                   currnode=currnode.next;
+               }
+               currnode.next=newnode;
+       }
+           
+           public void printlist(){
+               if(head==null){
+                System.out.println("list is empty"); 
+                  return;
+           }  
+           
+               Node currnode=head;
+               while(currnode!=null){
+                   System.out.print(currnode.data +"-");
+                   currnode=currnode.next;
+               }
+              System.out.println("\n "+"null"); 
+           }
+    
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		LL list = new LL();
+		list.addFirst("is");
+		list.addFirst("this");
+		list.addLast("a");
+		list.printlist();
+		list.addLast("list");
+	}
+}
